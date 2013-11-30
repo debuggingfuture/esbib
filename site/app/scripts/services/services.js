@@ -10,7 +10,7 @@ define(
         services.esQueryServiceFactory = function(ejsResource) {
             var _service = {};
 
-            var ejs = ejsResource('http://137.189.97.90:5902');
+            var ejs = ejsResource('http://localhost:9200');
             var index = 'user1';
             var type = 'bib';
 
