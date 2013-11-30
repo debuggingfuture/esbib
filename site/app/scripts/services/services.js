@@ -10,27 +10,22 @@ define(
         services.esQueryServiceFactory = function(ejsResource) {
             var _service = {};
 
-
-            console.log('ejsResource');
-            // console.log(ejsResource);
-
             var ejs = ejsResource('http://137.189.97.90:5902');
             var index = 'user1';
             var type = 'bib';
 
+            _service.queryES = function(queryString, fieldsToReturn, resultCb) {
+                var query = ejs.QueryStringQuery(queryString);
 
-            /* execute the request */
-            var r = ejs.Request()
-                .indices(index)
-                .types(type)
-                .fields(fieldsToReturn)
-                .query(query);
-
-            _service.queryES = function($scope, query, fieldsToReturn,resultCb) {
-
+                /* execute the request */
+                var r = ejs.Request()
+                    .indices(index)
+                    .types(type)
+                    .fields(fieldsToReturn)
+                    .query(query);
                 /* a function to display results */
 
-                var callbackWrapper = function() {
+                var callbackWrapper = function(results) {
                     resultCb(results.hits.hits);
                 }
 
@@ -44,4 +39,4 @@ define(
         return services;
 
 
-});
+    });

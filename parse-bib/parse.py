@@ -15,8 +15,17 @@ from pybtex.database.input import bibtex
 import json
 import copy
 import requests
-import sh
 from os import path
+
+def bib2json(bib):
+    j = copy.copy(e.fields)
+    j['bibfn'] = bib_filename
+    j['bibkey'] = e.key
+    j['type'] = e.type
+    j['vars'] = e.vars
+    j['author'] = [[p.first(), p.last()] for p in e.persons['author']]
+    s = json.dumps(j)
+    return s
 
 def bib2es(bib_filename, es_url):
     #open a bibtex file
@@ -28,14 +37,7 @@ def bib2es(bib_filename, es_url):
     for e in bibdata.entries.values():
         # e can not be json serialized directly
         try:
-            j = copy.copy(e.fields)
-            j['bibfn'] = bib_filename
-            j['bibkey'] = e.key
-            j['type'] = e.type
-            j['vars'] = e.vars
-            j['author'] = [[p.first(), p.last()] for p in e.persons['author']]
-            s = json.dumps(j)
-            requests.post(es_url, data=s)
+            bib2json(e)
         except Exception as e:
             print "Exception:", str(e)
 

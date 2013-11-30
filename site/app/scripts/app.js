@@ -52,8 +52,8 @@ define(
               redirectTo: '/'
             });
 
-
-          $provide.factory('esQueryService', services.esQueryServiceFactory);
+//not elasticjs.service
+          $provide.factory('esQueryService', ['ejsResource',services.esQueryServiceFactory]);
 
           // $locationProvider.html5Mode(true);
 
