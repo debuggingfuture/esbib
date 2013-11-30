@@ -17,7 +17,7 @@ import copy
 import requests
 from os import path
 
-def bib2json(bib):
+def bib2json(e, bib_filename):
     j = copy.copy(e.fields)
     j['bibfn'] = bib_filename
     j['bibkey'] = e.key
@@ -37,7 +37,8 @@ def bib2es(bib_filename, es_url):
     for e in bibdata.entries.values():
         # e can not be json serialized directly
         try:
-            bib2json(e)
+            j = bib2json(e, bib_filename)
+            requests.post(es_url, j)
         except Exception as e:
             print "Exception:", str(e)
 

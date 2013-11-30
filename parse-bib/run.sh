@@ -2,4 +2,4 @@
 
 # run our test case
 
-python parse.py '../input' 'http://137.189.97.90:5902/user1/bib/'
+python parse.py '../input' 'http://127.0.0.1:9200/user1/bib/'
