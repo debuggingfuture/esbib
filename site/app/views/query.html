@@ -31,22 +31,35 @@
       <ul >
         <li  ng-repeat="result in results">
           <div  >
-            <span ng-bind-html-unsafe="result.fields.file_meta.name | autocompleteHighlight:query"></span> 
+            <!-- <span ng-bind-html-unsafe="result.fields.file_meta.name | autocompleteHighlight:query"></span>  -->
             <!-- <span style="float:right" ng-bind-html-unsafe="result"></span> -->
             <span ng-show="result.fields.title" >{{result.fields.title}}</span> 
+            <br>
+            year:
+            <span ng-show="result.fields.year" >{{result.fields.year}}</span>
+            <br>
+            authors:
+            <span ng-show="result.fields.author" >
+              <!-- {{result.fields.author}} -->
+              <ul>
+                <li  ng-repeat="a in result.fields.author">
+                  {{a[0]}}, {{a[1]}}
+                </li>
+              </ul>
+            </span> 
+
             <!-- <div ng-include src="result | fileTypeTemplateFilter" ng-model="fileTypeResult"> -->
-            </div>
-            <div>
-             <span ng-bind-html-unsafe="result"></span>
-           </div>
-           <div >
-<!--             <a ng-href="/get/{{ result | downloadPath}}" target="_blank">Download<span ng-bind-html-unsafe="result.fields.file_meta.path | autocompleteHighlight:query"></span> </a> -->
-
           </div>
+          <!-- <div> -->
+           <!-- <span ng-bind-html-unsafe="result"></span> -->
+         <!-- </div> -->
+         <div >
+          <!--             <a ng-href="/get/{{ result | downloadPath}}" target="_blank">Download<span ng-bind-html-unsafe="result.fields.file_meta.path | autocompleteHighlight:query"></span> </a> -->
 
-       </div>
-     </li>
-   </ul>
+        </div>
+
+      </li>
+    </ul>
 
  </div>
 </p>

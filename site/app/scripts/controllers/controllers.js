@@ -20,7 +20,7 @@ define(['angular'], function() {
 		var index = 'user1';
 		var type = 'bib';
 
-		var fieldsToReturn = ["title"];
+		var fieldsToReturn = ["title", "author", "year"];
 		// var mltFields = ["file_as_attachment.image_exif.creation_date",
 		// 	"file_as_attachment.image_exif.model",
 		// 	"file_as_attachment.image_exif.image_height",
