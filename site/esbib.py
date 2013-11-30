@@ -26,4 +26,5 @@ def query():
                     content_type='application/json; charset=UTF-8')
     #return jsonify(requests.get(prefix).json())
 
-app.run(debug=True, port=9000)
+#app.run(debug=True, port=9000)
+app.run(host='0.0.0.0', port=9000)
