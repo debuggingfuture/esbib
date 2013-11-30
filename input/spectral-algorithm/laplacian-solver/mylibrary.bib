@@ -1,0 +1,119 @@
+% This file was created with JabRef 2.7b.
+% Encoding: UTF-8
+
+@ARTICLE{christiano2010electrical,
+  author = {Christiano, P. and Kelner, J.A. and Madry, A. and Spielman, D.A.
+	and Teng, S.H.},
+  title = {Electrical flows, laplacian systems, and faster approximation of
+	maximum flow in undirected graphs},
+  journal = {Arxiv preprint arXiv:1010.2921},
+  year = {2010},
+  volume = {<<missing>>},
+  pages = {<<missing>>},
+  _h_pass1 = {2012.04.17},
+  _h_pass2 = {undefined},
+  _h_pass3 = {undefined},
+  _h_priority = {1},
+  abstract = {Referenced from Chi's spectral algorithm course.
+	
+	
+	Complexity: m^1.5 * logM
+	
+	Can be further reduced to m^1.33 * logM
+	
+	
+	General approach:
+	
+	 * Bi-search objective value, making it a new constraint. Optimization
+	problem becomes a decision problem. 
+	
+	 * Form decision problem as a game where mixed strategy is allowed.
+	
+	 * One multiplicative update player v.s. a group of constraint players.
+	
+	 * Multiplicative player can do nearly as good as the best constraint.
+	[arora2005multiplicative]
+	
+	 * Create one oracle: input the weighted constraint(from multiplicative
+	player), solve the decision problem.
+	
+	
+	The oracle:
+	
+	 * Electric flow, which can be solved by a Laplacian solver. 
+	
+	 * Best known Laplacian solver is near linear time of m, using low
+	stretch spanning tree as preconditioner.
+	
+	 * Query time is O(m).
+	
+	
+	Analysis:
+	
+	 * O(m^0.5) queries are needed for each decision problem. (p=m^0.5
+	is the width of above oracle)
+	
+	 * Can delete edges with too much flow on it. Improve to O(m^0.33)
+	number of queries.
+	
+	
+	Question:
+	
+	   * logM factor is not in the final complexity? Needs further careful
+	study of this paper!},
+  file = {:christiano2010-Electrical-flows-laplacian-systems-and-faster-approximation-of-maximum-flow-in-undirected-graphs.pdf:PDF},
+  owner = {hpl},
+  timestamp = {2012.04.17}
+}
+
+@ARTICLE{koutis2010approaching,
+  author = {Koutis, I. and Miller, G.L. and Peng, R.},
+  title = {Approaching optimality for solving SDD systems},
+  journal = {Arxiv preprint arXiv:1003.2958},
+  year = {2010},
+  volume = {<<missing>>},
+  pages = {<<missing>>},
+  _h_pass1 = {2012.04.10},
+  _h_pass2 = {undefined},
+  _h_pass3 = {undefined},
+  _h_priority = {0},
+  abstract = {SDD: symmetric and diagonally dominant
+	
+	
+	 * SDD is linear time reducible to Laplacian system.
+	
+	 * Choose the probability distribution to be oversampling(stretch,
+	resistance as distance). (compared with the one given by "spielman2008sparsify").},
+  file = {:koutis2010-Approaching-optimality-for-solving-SDD-systems.pdf:PDF},
+  owner = {hpl},
+  timestamp = {2012.04.10}
+}
+
+@ARTICLE{koutis2011combinatorial,
+  author = {Koutis, I. and Miller, G.L. and Tolliver, D.},
+  title = {Combinatorial preconditioners and multilevel solvers for problems
+	in computer vision and image processing},
+  journal = {Computer Vision and Image Understanding},
+  year = {2011},
+  volume = {<<missing>>},
+  pages = {<<missing>>},
+  _h_pass1 = {2012.05.04},
+  _h_pass2 = {undefined},
+  _h_pass3 = {undefined},
+  _h_priority = {0},
+  abstract = {Reduction of SDD to Laplacian....
+	
+	
+	Other articles all quote [Keith. D. Gremban 95]'s thesis, as "double
+	cover". 
+	
+	I can not find this approach in original thesis, even similar keywords...
+	
+	
+	Finally, I get the reduction technique in this paper. (section 3.2)},
+  file = {:koutis2011-Combinatorial-preconditioners-and-multilevel-solvers-for-problems-in-computer-vision-and-image-processing.pdf:PDF},
+  owner = {hpl},
+  publisher = {Elsevier},
+  timestamp = {2012.05.05}
+}
+

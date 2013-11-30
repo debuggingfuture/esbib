@@ -1,0 +1,394 @@
+% This file was created with JabRef 2.9.2.
+% Encoding: UTF-8
+
+@INPROCEEDINGS{altman2005pagerank,
+  author = {Altman, A. and Tennenholtz, M.},
+  title = {The pagerank axioms},
+  booktitle = {Proceedings of the 6-th ACM conference on Electronic Commerce},
+  year = {2005},
+  _h_pass1 = {2012.04.04},
+  _h_pass2 = {2012.04.05},
+  _h_pass3 = {undefined},
+  _h_priority = {0},
+  abstract = {5 axiom:
+	
+	 * Isomorphism. 
+	
+	 * Self-edge. 
+	
+	 * Vote-by-commitee
+	
+	 * Collapsing. 
+	
+	 * Proxy. 
+	
+	
+	Prove the satisfaction of the 5 axioms. Prove the completeness(uniquely
+	defined rank)(constructive proof).},
+  file = {:altman2005-The-pagerank-axioms.pdf:PDF},
+  owner = {hpl},
+  review = {General comments: 
+	
+	 * It demonstrates another kind of possible research. Axiomization
+	of existent algorithms, theorems, etc. Feel this kind of work is
+	hard to be recognized, since the originality is still the inventor's.
+	Axiomization only serves as a probably good interpretation.},
+  timestamp = {2012.04.04}
+}
+
+@ARTICLE{berkhin2006bookmark,
+  author = {Berkhin, P.},
+  title = {Bookmark-coloring algorithm for personalized pagerank computing},
+  journal = {Internet Mathematics},
+  year = {2006},
+  volume = {3},
+  pages = {41--62},
+  number = {1},
+  _h_pass1 = {2012.04.04},
+  _h_pass2 = {undefined},
+  _h_pass3 = {undefined},
+  _h_priority = {0},
+  abstract = {Ink spilling. Paint spilling. Initiator. 
+	
+	
+	epsilon approximation, in time O(1/(epsilon*alpha)). 
+	
+	This bound is given in Spielman's lecture notes later. 
+	
+	
+	The current paper is majorly the engineering design.
+	
+	
+	See "spielman-2010graph-ln" Lecture 11 for theoretical proof.
+	
+	See also "lau-2012-spectral-ln" Lecture 7 for theoretical proof.},
+  file = {:berkhin2006-Bookmark-coloring-algorithm-for-personalized-pagerank-computing.pdf:PDF},
+  owner = {hpl},
+  publisher = {AK Peters},
+  timestamp = {2012.04.04}
+}
+
+@ARTICLE{bianchini2005inside,
+  author = {Bianchini, M. and Gori, M. and Scarselli, F.},
+  title = {Inside pagerank},
+  journal = {ACM Transactions on Internet Technology (TOIT)},
+  year = {2005},
+  volume = {5},
+  pages = {92--128},
+  number = {1},
+  _h_pass1 = {undefined},
+  _h_pass2 = {undefined},
+  _h_pass3 = {undefined},
+  _h_priority = {0},
+  abstract = {Includes escaping probability.},
+  file = {:bianchini2005-Inside-pagerank.pdf:PDF},
+  owner = {hpl},
+  publisher = {ACM},
+  timestamp = {2012.02.23}
+}
+
+@INPROCEEDINGS{fujiwara2012efficient,
+  author = {Fujiwara, Y. and Nakatsuji, M. and Yamamuro, T. and Shiokawa, H.
+	and Onizuka, M.},
+  title = {Efficient personalized pagerank with accuracy assurance},
+  booktitle = {Proceedings of the 18th ACM SIGKDD international conference on Knowledge
+	discovery and data mining},
+  year = {2012},
+  pages = {15--23},
+  organization = {ACM},
+  _h_pass1 = {2012.11.24},
+  _h_pass2 = {2012.11.24},
+  _h_pass3 = {undefined},
+  _h_priority = {0},
+  abstract = {Very good written paper! Good contribution on PPR computation!
+	
+	
+	PPR query problems:
+	
+	 * Given restarting distribution (d) output score of a node x. 
+	
+	 * Given restarting distribution (d) output top K scored nodes.
+	
+	
+	 * Given restarting distribution (d) output nodes with rank higher
+	than epsilon.
+	
+	
+	This paper achieves the above three problem with accuracy guarantee.
+	Previous existing works focus more on approximate algorithms.},
+  file = {:fujiwara2012-Efficient-personalized-pagerank-with-accuracy-assurance.pdf:PDF},
+  owner = {hpl},
+  review = {Key of single nodes query:
+	
+	 * PPR iteration form --> matrix inverse form. 
+	
+	 * Observation: Permutation matrix preserves inversion. 
+	
+	 * Observation: Proper permutation can result in sparse Q and R (QR
+	decomposition) s.t. QR = I - (1-c)A'
+	
+	 * Q inverse is Q transpose; R inverse can be done by backward substitution.
+	
+	
+	 * After Q R precomputation, the query for (x,d) can be done by simple
+	inner product. Time cost is non-zero elements in Q and R.
+	
+	
+	
+	Top-k query:
+	
+	 * Estimate the lower bound of PPR on a BFS tree starting from nodes
+	in d. O(n + m) time. 
+	
+	 * Sort nodes in descent order of lowerbound. 
+	
+	 * Use estimated lower bound and computed exact score to estimate
+	an upper bound. 
+	
+	 * User upper bound to do early termination. 
+	
+	
+	above-epsilon query:
+	
+	 * Similar to top-k. Estimate lowerbound and upper bound, then prune
+	nodes. 
+	
+	 * Nodes with lowerbound above epsilon is directly in. 
+	
+	 * Nodes with upperbound below epsilon is directly out. 
+	
+	 * Compute for unsure nodes. 
+	
+	 * In the upperbound estimation stage, use lower bound (unlike the
+	top-k query where exact score is computed).},
+  timestamp = {2012.11.13}
+}
+
+@ARTICLE{haveliwala2003topic,
+  author = {Haveliwala, T.H.},
+  title = {Topic-sensitive pagerank: A context-sensitive ranking algorithm for
+	web search},
+  journal = {Knowledge and Data Engineering, IEEE Transactions on},
+  year = {2003},
+  volume = {15},
+  pages = {784--796},
+  number = {4},
+  _h_pass1 = {2012.02.20},
+  _h_pass2 = {undefined},
+  _h_pass3 = {undefined},
+  _h_priority = {1},
+  abstract = {The basic idea behind:
+	
+	 * Same transition matrix but different escaping vector for different
+	topic. (multiple Personalized PR)
+	
+	 * It can be proved that linear combination of topics results in same
+	linear combination of final rank.
+	
+	
+	Facilitating search engine ranking:
+	
+	1. Offline compute landmark topics.(with different escape vector)
+	
+	2. Decompose query into landmark toipcs with weights. 
+	
+	3. Weigh the ranks of a page on different topics using the same combination.},
+  file = {:haveliwala2003-Topic-sensitive-pagerank-A-context-sensitive-ranking-algorithm-for-web-search.pdf:PDF},
+  owner = {hpl},
+  publisher = {IEEE},
+  timestamp = {2012.02.23}
+}
+
+@BOOK{kamvar2010numerical,
+  title = {Numerical Algorithms for Personalized Search in Self-organizing Information
+	Networks},
+  publisher = {Princeton Univ Pr},
+  year = {2010},
+  author = {Kamvar, S.},
+  _h_pass1 = {2012.05.09},
+  _h_pass2 = {undefined},
+  _h_pass3 = {undefined},
+  _h_priority = {0},
+  abstract = {E-book available inside CUHK:
+	
+	http://encore.lib.cuhk.edu.hk/iii/encore/record/C|Rb4080966|SSep+Kamvar|Orightresult|X4?lang=eng&suite=def
+	
+	
+	Detailed proofs, more close to engineer use. 
+	
+	Contains abundant results of pagerank. 
+	
+	
+	Interesting chapters:
+	
+	 * ch3. the 2nd eigenvalue of Google Matrix(industrial data)
+	
+	 * ch4. condition number of PR.
+	
+	 * ch5. exploration algorithms. (acceleration of power method).
+	
+	 * ch6. Adaptive PR.
+	
+	 * Part Two. About P2P network. (not current focus).},
+  file = {:kamvar2010-Numerical-Algorithms-for-Personalized-Search-in-Self-organizing-Information-Networks.txt:Text},
+  owner = {hpl},
+  review = {====ch3====
+	
+	 * Relationship between convergence and the transition probability(alpha)
+	(can be derived from Raleigh quotient). 
+	
+	 * Can derive constant convergence rate. (Ref "kempe2011-network-lt").
+	
+	
+	====ch4====
+	
+	 * condition number, eigen system -> linear equation system. 
+	
+	 * strict SDD is invertible.
+	
+	
+	====ch6====
+	
+	 * Observation: most nodes converge quicly, a few nodes converges
+	slow(high rank nodes). 
+	
+	 * Improvement: already converged nodes are not iterated. 
+	
+	 * speedup 17%.},
+  timestamp = {2012.05.09}
+}
+
+@ARTICLE{kannan2003rapid,
+  author = {Kannan, R.},
+  title = {Rapid mixing in Markov chains},
+  journal = {Arxiv preprint math/0304470},
+  year = {2003},
+  volume = {<<missing>>},
+  pages = {<<missing>>},
+  _h_pass1 = {undefined},
+  _h_pass2 = {undefined},
+  _h_pass3 = {undefined},
+  _h_priority = {-1},
+  abstract = {a survey paper of Markov Chain mixing time.},
+  file = {:kannan2003-Rapid-mixing-in-Markov-chains.pdf:PDF},
+  owner = {hpl},
+  timestamp = {2012.04.10}
+}
+
+@ARTICLE{kleinberg1999authoritative,
+  author = {Kleinberg, J.M.},
+  title = {Authoritative sources in a hyperlinked environment},
+  journal = {Journal of the ACM (JACM)},
+  year = {1999},
+  volume = {46},
+  pages = {604--632},
+  number = {5},
+  _h_pass1 = {2012.02.20},
+  _h_pass2 = {undefined},
+  _h_pass3 = {undefined},
+  _h_priority = {0},
+  abstract = {The invention of HITS algorithm. (prioir to PR? or prior to PR's wide
+	adoption)
+	
+	
+	Philosophy:
+	
+	1. PR: pages being pointed to is important. 
+	
+	2. HITS: pages being pointed to(authority) and pages point to(hubs)
+	are both important.
+	
+	
+	For internet eco-system:
+	
+	 * Competitive! This character breaks down PR's basic assumption,
+	since similar pages may not point to each other. 
+	
+	 * Co-citationi is possible. Similar important pages may be pointed
+	to at the same time by third party "hub".
+	
+	 * HITS may be more proper but computation intensive.},
+  file = {:kleinberg1999-Authoritative-sources-in-a-hyperlinked-environment.pdf:PDF},
+  owner = {hpl},
+  publisher = {ACM},
+  timestamp = {2012.02.23}
+}
+
+@ARTICLE{lu2011leaders,
+  author = {L{\"u}, Linyuan and Zhang, Yi-Cheng and Yeung, Chi Ho and Zhou, Tao},
+  title = {Leaders in social networks, the delicious case},
+  journal = {PloS one},
+  year = {2011},
+  volume = {6},
+  pages = {e21202},
+  number = {6},
+  _h_pass1 = {2013.06.04},
+  _h_pass2 = {2013.06.04},
+  _h_pass3 = {undefined},
+  _h_priority = {0},
+  abstract = {Referred to from the ICM 2012 O winner from UESTC. 
+	
+	
+	Main ingredients:
+	
+	   * Collective search. delicious.com
+	
+	   * LeaderRank, said to outperform PageRank and HITS on network of
+	people.
+	
+	   * adaptive and parameter-free algorithm to quantify user's influence.
+	
+	
+	
+	Remarks:
+	
+	   * For me the LeaderRank proposed in this paper is just PageRank.
+	The process of adding a ground node was long used in industry. The
+	PR quoted in this paper is just one variation. 
+	
+	   * Personalized PageRank (PPR) subsumes both PageRank and LeaderRank.
+	
+	   * The justification for LeaderRank is not strong.},
+  file = {:lu2011-Leaders-in-social-networks-the-delicious-case.pdf:PDF},
+  owner = {hpl},
+  publisher = {Public Library of Science},
+  review = {Methodology:
+	
+	   * Add a ground node (GN). All nodes connect to GN and GN connects
+	to all other nodes. 
+	
+	   * Initialize all nodes with 1 score. Run PageRank on the network
+	(RW).
+	
+	   * At convergence, evenly distribute the score of GN to all other
+	nodes.
+	
+	
+	Remarks:
+	
+	   * The addition of GN is a common practice in real implementation
+	of PR. 
+	
+	   * The real difference is: evenly distribute score of GN to other
+	nodes.},
+  timestamp = {2013.06.04}
+}
+
+@ARTICLE{langville2004deeper,
+  author = {Langville, A.N. and Meyer, C.D.},
+  title = {Deeper inside pagerank},
+  journal = {Internet Mathematics},
+  year = {2004},
+  volume = {1},
+  pages = {335--380},
+  number = {3},
+  _h_pass1 = {undefined},
+  _h_pass2 = {undefined},
+  _h_pass3 = {undefined},
+  _h_priority = {-1},
+  file = {:langville2004-Deeper-inside-pagerank.pdf:PDF},
+  owner = {hpl},
+  publisher = {AK Peters},
+  timestamp = {2012.02.23}
+}
+
