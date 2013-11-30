@@ -50,6 +50,7 @@ if __name__ == '__main__':
     #print input_dir
     #print es_url
 
+    requests.delete(es_url)
     import os
     #for root, dirs, files in os.walk(".", topdown=False):
     for root, dirs, files in os.walk(input_dir):
@@ -64,6 +65,5 @@ if __name__ == '__main__':
 
     #fn = '../input/statistics/mylibrary.bib'
     #es_url='http://137.189.97.90:5902/user1/bib/'
-    #requests.delete(es_url)
     #bib2es(fn, es_url)
 

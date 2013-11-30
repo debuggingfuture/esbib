@@ -18,6 +18,15 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
 
+    bower: {
+        options:{
+            targetDir: '<%= yeoman.app %>/bower_components'
+        },
+        all:{
+            rjsConfig: '<%= yeoman.app %>/scripts/main.js'
+        },
+    },
+
     // Project settings
     yeoman: {
       // configurable paths
@@ -136,9 +145,6 @@ module.exports = function (grunt) {
       }
     },
 
-    
-
-    
 
     // Renames files for browser caching purposes
     rev: {
@@ -326,6 +332,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'bower',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -362,8 +369,10 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
+    //'newer:jshint',
     'test',
     'build'
   ]);
+
+  grunt.loadNpmTasks('grunt-bower-task');
 };
