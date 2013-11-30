@@ -3,6 +3,14 @@
 # ref:
 #    http://stackoverflow.com/questions/9235853/convert-bibtex-file-to-database-entries-using-python
 
+"""
+Usage:
+    parse.py <input_dir> <es_url>
+
+Options:
+    -h --help     Show this screen.
+"""
+
 from pybtex.database.input import bibtex
 import json
 import copy
@@ -29,32 +37,33 @@ def bib2es(bib_filename, es_url):
             s = json.dumps(j)
             requests.post(es_url, data=s)
         except Exception as e:
-            print str(e)
+            print "Exception:", str(e)
 
-fn = '../input/statistics/mylibrary.bib'
-es_url='http://137.189.97.90:5902/user1/bib/'
-requests.delete(es_url)
-bib2es(fn, es_url)
+if __name__ == '__main__':
+    from docopt import docopt
+    arguments = docopt(__doc__, version='author.py 0.1')
+    #print arguments
+    #sys.exit(-1)
+    input_dir = arguments['<input_dir>']
+    es_url = arguments['<es_url>']
 
-#for fn in sh.ls('-1', 'bib-storage').split():
-#    try:
-#        bib2es(path.join('bib-storage', fn), es_url)
-#    except Exception as e:
-#        print str(e)
+    #print input_dir
+    #print es_url
 
-#loop through the individual references
-#for bib_id in bibdata.entries:
-#
-#    b = bibdata.entries[bib_id].fields
-#    try:
-#        print json.dumps(bibdata.entries[bib_id])
-#        # change these lines to create a SQL insert
-##        print b["title"]
-##        print b["journal"]
-##        print b["year"]
-##        #deal with multiple authors
-#        #for author in bibdata.entries[bib_id].persons["author"]:
-#        #    print author.first(), author.last()
-#    # field may not exist for a reference
-#    except(KeyError):
-#        continue
+    import os
+    #for root, dirs, files in os.walk(".", topdown=False):
+    for root, dirs, files in os.walk(input_dir):
+        for name in files:
+            fn = os.path.join(root, name)
+            if fn.endswith('.bib'):
+                print "parsing:", fn
+                bib2es(fn, es_url)
+        #for name in dirs:
+        #    print (os.path.join(root, name))
+
+
+    #fn = '../input/statistics/mylibrary.bib'
+    #es_url='http://137.189.97.90:5902/user1/bib/'
+    #requests.delete(es_url)
+    #bib2es(fn, es_url)
+
