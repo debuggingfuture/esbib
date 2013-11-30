@@ -10,7 +10,8 @@ define(
         services.esQueryServiceFactory = function(ejsResource) {
             var _service = {};
 
-            var ejs = ejsResource('http://localhost:9000/query');
+            //TODO: use the server prefix
+            var ejs = ejsResource('http://137.189.97.90:5902/query');
             var index = 'user1';
             var type = 'bib';
 
