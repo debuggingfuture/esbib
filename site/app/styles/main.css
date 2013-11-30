@@ -77,3 +77,15 @@ body {
     border-bottom: 0;
   }
 }
+
+.logo-container {
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+   width: 20%;
+  border: dashed blue 1px;
+}
+.logo-container img {
+  max-height: 100%;
+  max-width: 100%;
+}

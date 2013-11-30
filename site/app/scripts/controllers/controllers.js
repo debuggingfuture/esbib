@@ -8,17 +8,15 @@ define(['angular'], function() {
 	// 	$scope.world = "World";
 	// }
 
-	controllers.QueryCtrl = function($scope, $http, ejsResource) {
+	controllers.QueryCtrl = function($scope, $http, esQueryService) {
 		console.log('Qurey Ctrl Hello World');
 		console.log('scope');
 		console.log($scope);
-		console.log('ejsResource');
+		console.log('esQueryService');
+		console.log(esQueryService);
 
 		// console.log(ejsResource);
 
-		var ejs = ejsResource('http://137.189.97.90:5902/');
-		var index = 'user1';
-		var type = 'bib';
 
 		var fieldsToReturn = ["title"];
 		// var mltFields = ["file_as_attachment.image_exif.creation_date",
@@ -32,50 +30,16 @@ define(['angular'], function() {
 
 
 		$scope.search = function() {
-
-			// file_attachment as fields
-			// var query = ejs.TermQuery("_all", $scope.query);
-
-			//query need to be process, e.g. for casse sensitive
-			var query = ejs.QueryStringQuery($scope.query);
-
-			// var query = ejs.QueryStringQuery($scope.query);
-
-			// name,postDate,
-
-
-                var query = ejs.QueryStringQuery($scope.query);
-
-
-			/* a function to display results */
 			var resultsCallBack = function(results) {
-				console.log('callback %o', results);
-				console.log(results.hits.hits.length);
-				if (results.hits) {
-					var hits = results.hits.hits;
-					for (var i = 0; i < hits.length; i++) {
-						var hit = hits[i];
-						// console.log(hit._source.message);
-					}
-					$scope.results = results.hits.hits;
-					console.log($scope.results);
-				}
-
-
+				$scope.results = results;
 				// $scope.getFacet();
 			};
-			/* execute the request */
-			var r = ejs.Request()
-							.indices(index)
-				.types(type)
-				.fields(fieldsToReturn)
-			// .collections("mydocs")
-			// .types("file_attachment")
-			.query(query);
 
-			r.doSearch(resultsCallBack);
+			//TODO query need to be process, e.g. for casse sensitive
+			esQueryService.queryES($scope.query, fieldsToReturn, resultsCallBack);
+			// var query = ejs.QueryStringQuery($scope.query);
 
-
+			/* a function to display results */
 
 			//use watch instead in case of directives?
 
